@@ -12,6 +12,7 @@ echo Print Whole Bash Array : ${declare_array[@]}
 echo Number of elements in the array : ${#declare_array[@]}
 echo Number of Characters in the first elemtnt of the array:${#declare_array}
 
+echo "*********************************"
 #Declaring and Assinging a values
 
 Array[0]='0-Zero'
@@ -40,24 +41,28 @@ echo ${Array[@]}
 #pos=1
 #Array=(${Array[@]:0:$pos} ${Array[@]:$(($pos +1))})
 #echo ${Array[@]}
-
+echo "*********************************"
 Copy_Array=${Array[@]}
 echo Copy Array elements to Copy_Array: ${Copy_Array[@]}
 Concat_Array=("${Array[@]}" "${Copy_Array[@]}")
 echo Concatinating Two Arrays:: ${Concat_Array[@]}
 echo Concatinating Array Length:: ${#Concat_Array[@]}
-
+echo "*********************************"
+echo "Array Add delete"
+echo "*********************************"
 unset Concat_Array
 echo ${#Concat_Array[@]}
-#Load Content of a File into an Array
+
+echo "*********************************"
+echo "Load Content of a File into an Array"
+echo "*********************************"
+
 declare -a myarray
 readarray myarray < ./file.txt
 let i=0
 while ((${#myarray[@]} > i)); do
 printf "${myarray[i++]}\n"
 done
-
-
 echo Load Content of a File into an Array ${myarray[@]}
 echo ${#myarray[@]}
 echo ${myarray[1]}
